@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 8, 2015 9:04:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Partida" table="partida" catalog="dota2" optimistic-lock="version">
+        <id name="idpartida" type="long">
+            <column name="idpartida" />
+            <generator class="assigned" />
+        </id>
+        <property name="timevitorioso" type="int">
+            <column name="timevitorioso" not-null="true" />
+        </property>
+        <property name="duracao" type="int">
+            <column name="duracao" not-null="true" />
+        </property>
+        <property name="torresradiant" type="int">
+            <column name="torresradiant" not-null="true" />
+        </property>
+        <property name="torresdire" type="int">
+            <column name="torresdire" not-null="true" />
+        </property>
+        <property name="cluster" type="int">
+            <column name="cluster" not-null="true" />
+        </property>
+        <property name="tempofb" type="int">
+            <column name="tempofb" not-null="true" />
+        </property>
+        <property name="tipolobby" type="int">
+            <column name="tipolobby" not-null="true" />
+        </property>
+        <property name="idliga" type="int">
+            <column name="idliga" not-null="true" />
+        </property>
+        <set name="jogadoreses" table="jogadores" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpartida" not-null="true" />
+            </key>
+            <one-to-many class="persistencia.Jogadores" />
+        </set>
+    </class>
+</hibernate-mapping>

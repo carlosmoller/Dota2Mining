@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 8, 2015 9:04:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="persistencia.Jogadores" table="jogadores" catalog="dota2" optimistic-lock="version">
+        <id name="idjogador" type="java.lang.Long">
+            <column name="idjogador" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partida" class="persistencia.Partida" fetch="select">
+            <column name="idpartida" not-null="true" />
+        </many-to-one>
+        <property name="slot" type="int">
+            <column name="slot" not-null="true" />
+        </property>
+        <property name="idheroi" type="int">
+            <column name="idheroi" not-null="true" />
+        </property>
+        <property name="item1" type="int">
+            <column name="item1" not-null="true" />
+        </property>
+        <property name="item2" type="int">
+            <column name="item2" not-null="true" />
+        </property>
+        <property name="item3" type="int">
+            <column name="item3" not-null="true" />
+        </property>
+        <property name="item4" type="int">
+            <column name="item4" not-null="true" />
+        </property>
+        <property name="item5" type="int">
+            <column name="item5" not-null="true" />
+        </property>
+        <property name="item6" type="int">
+            <column name="item6" not-null="true" />
+        </property>
+        <property name="kills" type="int">
+            <column name="kills" not-null="true" />
+        </property>
+        <property name="mortes" type="int">
+            <column name="mortes" not-null="true" />
+        </property>
+        <property name="assistencias" type="int">
+            <column name="assistencias" not-null="true" />
+        </property>
+        <property name="ourofinal" type="int">
+            <column name="ourofinal" not-null="true" />
+        </property>
+        <property name="lasthits" type="int">
+            <column name="lasthits" not-null="true" />
+        </property>
+        <property name="denies" type="int">
+            <column name="denies" not-null="true" />
+        </property>
+        <property name="gpm" type="int">
+            <column name="gpm" not-null="true" />
+        </property>
+        <property name="xpm" type="int">
+            <column name="xpm" not-null="true" />
+        </property>
+        <property name="ourogasto" type="int">
+            <column name="ourogasto" not-null="true" />
+        </property>
+        <property name="danoemtorre" type="int">
+            <column name="danoemtorre" not-null="true" />
+        </property>
+        <property name="hpcurado" type="int">
+            <column name="hpcurado" not-null="true" />
+        </property>
+        <property name="level" type="int">
+            <column name="level" not-null="true" />
+        </property>
+        <property name="idconta" type="long">
+            <column name="idconta" not-null="true" />
+        </property>
+        <set name="habilidadeses" table="habilidades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idjogador" not-null="true" />
+            </key>
+            <one-to-many class="persistencia.Habilidades" />
+        </set>
+    </class>
+</hibernate-mapping>
