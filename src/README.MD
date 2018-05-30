@@ -1,0 +1,2 @@
+This project was made using Netbeans, so it's recommended to use it for building.
+Extract the ARFF files at the root of the binary for using it the data already formatted. To use the data extractors you need to setup a MySQL database and import the following dump: https://www.dropbox.com/s/1yrcplsdg2hljlv/Dump20141230.sql?dl=0. You must also change the hibernate.cfg.xml to point to the database created.
